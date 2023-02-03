@@ -25,6 +25,7 @@
         Wednesday will focus on styling the webpage and ironing out bugs within.
 
         Wireframe: https://wireframe.cc/pro/pp/c3d643f8c624901
+        ![UI Screenshot](./sampleUI.png?raw=true "Optional SampleUI")
 
         npm will be used to manage project dependencies, while canvas will be the main tool to render the game board, including the hoop, ball, score, and lives. 
 

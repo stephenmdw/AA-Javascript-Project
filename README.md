@@ -2,7 +2,7 @@
 
         - After pressing start, the player will be greeted with a small tutorial page explaining the controls. 
 
-        - To shoot the basketball, the player will click and drag their cursor back, changing the speed and trajectory of the ball depending on the length of the drag back, and the angle their mouse is positioned relativ to the ball. 
+        - To shoot the basketball, the player will click and drag their cursor back, changing the speed and trajectory of the ball depending on the length of the drag back, and the angle their mouse is positioned relative to the ball. 
 
         - A score function will be incremented every time a ball is passed through the hoop. 
 
@@ -26,4 +26,7 @@
 
         Wireframe: https://wireframe.cc/pro/pp/c3d643f8c624901
 
-        npm will be used to manage project dependencies, while canvas will be the main tool to render the game board, including the hoop, ball, score, and lives. Three js may be used, but only if there are things unachievable with native canvas. This will be determined after exploring the limitations of canvas. 
+        npm will be used to manage project dependencies, while canvas will be the main tool to render the game board, including the hoop, ball, score, and lives. 
+
+        PixiJS js may also be used, but this will be determined after exploring the limitations of canvas, as well as the difficulty of Pixi. https://pixijs.com/
+        

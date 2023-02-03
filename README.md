@@ -8,7 +8,7 @@ Players will have three balls that they can shoot. A successful make will return
 After players lose the game they will have the option to restart the game.
 If there is time, options to customize the ball and hoop will be added as well.
 
-###Timeline 
+### Timeline 
 
 Over Friday and the weekend, classes and images should be done for the ball, hoop, lives, and score. 
 
@@ -20,7 +20,7 @@ Wednesday will focus on styling the webpage and ironing out bugs within.
 
 ![UI Screenshot](./sampleUI.png?raw=true "Optional SampleUI")
 
-###Technologies
+### Technologies
 
 npm will be used to manage project dependencies, while canvas will be the main tool to render the game board, including the hoop, ball, score, and lives. 
 

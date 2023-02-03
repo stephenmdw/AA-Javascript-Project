@@ -18,6 +18,7 @@ Tuesday will involve the scoring and collisions with the hoop, as well as creati
 
 Wednesday will focus on styling the webpage and ironing out bugs within.
 
+### Mockup
 ![UI Screenshot](./sampleUI.png?raw=true "Optional SampleUI")
 
 ### Technologies

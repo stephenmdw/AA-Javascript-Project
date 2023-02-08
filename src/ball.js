@@ -49,19 +49,21 @@ class Ball {
 
     detectCollision(hoop){
         if (this.pos[0] + this.radius >= hoop.x && this.pos[0] + this.radius >= hoop.x + 10 && this.pos[1] >= hoop.y && this.pos[1] <= hoop.y + 125) {
-            console.log('backboard collision')
+            console.log('backboard collision', this.pos)
             this.vel[0] = this.vel[0] * -1
-        } else if ((this.pos[0] + this.radius >= hoop.x - 95 && this.pos[0] + this.radius <= hoop.x - 75) && ((this.pos[1] + this.radius >= hoop.y + 55 && this.pos[1] + this.radius <= hoop.y + 105) || (this.pos[1] - this.radius >= hoop.y + 55 && this.pos[1] - this.radius <= hoop.y + 105))){
+            this.pos[0] += -10
+            this.pos[1] += this.vel[1]
+        } else if ((this.pos[0] + this.radius >= hoop.x - 95 && this.pos[0] + this.radius <= hoop.x - 75) && ((this.pos[1] + this.radius >= hoop.y + 65 && this.pos[1] + this.radius <= hoop.y + 105) || (this.pos[1] - this.radius >= hoop.y + 55 && this.pos[1] - this.radius <= hoop.y + 105))){
             //front rim collision
             // debugger
             console.log('front rim collision', this.pos)
             this.vel[0] = this.vel[0] * -1
-        } else if (this.pos[0] + this.radius >= hoop.x - 3 && this.pos[0] + this.radius <= hoop.x  && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 85) {
-            console.log('back rim collision')
+        } else if (this.pos[0] + this.radius >= hoop.x - 5 && this.pos[0] + this.radius <= hoop.x + 45 && this.pos[1] + this.radius >= hoop.y - 10 && this.pos[1] + this.radius <= hoop.y + 10) {
+            console.log('top backboard collision')
             this.vel[1] = this.vel[1] * -1
         }
 
-        if((this.pos[0] + this.radius <= hoop.x && this.pos[0] + this.radius >= hoop.x - 85) && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 95) {
+        if((this.pos[0] + this.radius <= hoop.x && this.pos[0] + this.radius >= hoop.x - 85) && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 115) {
             this.made = true;
             console.log('made shot')
             // debugger

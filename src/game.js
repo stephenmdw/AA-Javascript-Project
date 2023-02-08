@@ -10,6 +10,7 @@ class Game {
         this.score = new Score(this.ctx)
         this.ball = new Ball(this.ctx)
         this.dragging = false
+        this.shot = false
         this.startX = 0
         this.startY = 0
         this.endX = 0
@@ -60,19 +61,24 @@ class Game {
     }
 
     startDrag(){
-        this.ball.dragging = true
-        this.startX = event.clientX;
-        this.startY = event.clientY;
-        console.log("Mouse is at X: " + this.startX + ", Y: " + this.startY);
+        if (this.shot === false){
+            this.ball.dragging = true
+            this.startX = event.clientX;
+            this.startY = event.clientY;
+        }
+        // console.log("Mouse is at X: " + this.startX + ", Y: " + this.startY);
     }
-
+            
     stopDrag(){
-        this.endX = event.clientX;
-        this.endY = event.clientY;
-        this.ball.vel[0] = (this.startX - this.endX)/5 
-        this.ball.vel[1] = (this.startY - this.endY)/4
-        console.log(this.ball.vel)
-        this.ball.dragging = false
+        if(this.shot === false ){
+            this.endX = event.clientX;
+            this.endY = event.clientY;
+            this.ball.vel[0] = (this.startX - this.endX)/5 
+            this.ball.vel[1] = (this.startY - this.endY)/5
+            console.log(this.ball.vel)
+            this.ball.dragging = false
+            this.shot = true
+        }
     }
 
 
@@ -88,6 +94,7 @@ class Game {
             this.ball.pos[0] = 100
             this.ball.pos[1] = 575
             this.ball.vel = [0,0]
+            this.shot = false
         }
 
         if (this.score.playerLives === 0){

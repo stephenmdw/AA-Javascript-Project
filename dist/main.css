@@ -37,6 +37,11 @@
 
 }
 
+a {
+  height: 50px;
+  width: 50px;
+}
+
 #git {
   background-image: url('../assets/github-logo.png');
   background-size: 100%;

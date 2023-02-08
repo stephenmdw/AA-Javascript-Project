@@ -1,20 +1,81 @@
-class Ball{
-    constructor(){
+// import Hoop from "./hoop.js"
+const GRAVITY = 0.4
+// const BALL_RADIUS = 25
+
+class Ball {
+    constructor(ctx, x, y){
+        this.ctx = ctx
+        this.pos = [100, 575]
+        this.radius = 25
+        // this.vel = [8, -23]
+        this.vel = [0, 0]
+        this.animate = this.animate.bind(this)
+        this.dragging = false
+        this.dragStart = [0, 0]
+        this.dragEnd = [0, 0]
+        this.detectCollision = this.detectCollision.bind(this)
+        this.made = false
+        // canvas.addEventListener("mousedown", this.startDrag.bind(this))
+        // canvas.addEventListener("mouseup", this.endDrag.bind(this))
+    }
+
+    drawBall(ctx){
+        ctx.beginPath();
+        ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, false);
+        ctx.strokeStyle = "Orange"
+        ctx.fillStyle = "Orange"
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath()
+        // this.isDragging = true
     }
 
     animate(){
-
+        if (!this.dragging) {
+            this.move()
+        }        
+        // this.reset()
+        this.drawBall(this.ctx)
     }
 
-    drawBall(){
-        let ball = PIXI.Sprite.from('./basketball.png');
-        ball.width = 80
-        ball.height = 80
-        ball.x = 100
-        ball.y = 350
-        ball.interactive = true;
-        return ball
+    move(){
+        if (this.vel[0] !== 0) {
+            this.pos[0] += this.vel[0]
+            this.pos[1] += this.vel[1]
+            this.applyGravity()
+        }
     }
 
+
+    detectCollision(hoop){
+        if (this.pos[0] + this.radius >= hoop.x && this.pos[0] + this.radius >= hoop.x + 10 && this.pos[1] >= hoop.y && this.pos[1] <= hoop.y + 125) {
+            console.log('backboard collision')
+            this.vel[0] = this.vel[0] * -1
+        } else if ((this.pos[0] + this.radius >= hoop.x - 95 && this.pos[0] + this.radius <= hoop.x - 75) && ((this.pos[1] + this.radius >= hoop.y + 55 && this.pos[1] + this.radius <= hoop.y + 105) || (this.pos[1] - this.radius >= hoop.y + 55 && this.pos[1] - this.radius <= hoop.y + 105))){
+            //front rim collision
+            // debugger
+            console.log('front rim collision', this.pos)
+            this.vel[0] = this.vel[0] * -1
+        } else if (this.pos[0] + this.radius >= hoop.x - 3 && this.pos[0] + this.radius <= hoop.x  && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 85) {
+            console.log('back rim collision')
+            this.vel[1] = this.vel[1] * -1
+        }
+
+        if((this.pos[0] + this.radius <= hoop.x && this.pos[0] + this.radius >= hoop.x - 85) && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 95) {
+            this.made = true;
+            console.log('made shot')
+            // debugger
+            this.vel[0] = 0.1
+            this.vel[1] = 10
+            }
+    }
+
+    applyGravity(){
+        this.vel[1] += GRAVITY
+    }
+
+   
+    //if made shot, velocity of ball goes downwards
 }
+
 export default Ball

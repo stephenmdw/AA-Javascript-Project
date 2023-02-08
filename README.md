@@ -4,7 +4,7 @@ After pressing start, the player will be greeted with a small tutorial page expl
 To shoot the basketball, the player will click and drag their cursor back, changing the speed and trajectory of the ball depending on the length of the drag back, and the angle their mouse is positioned relative to the ball. 
 A score function will be incremented every time a ball is passed through the hoop. 
 In order to add a difficulty component, the hoop will either relocate or move in either a vertical or horizontal direction. 
-Players will have three balls that they can shoot. A successful make will return the shot ball back to them, but if they miss, i.e. hit the bottom of the screen, they will lose the ball. 
+    Players will have three balls that they can shoot. A successful make will return the shot ball back to them, but if they miss, i.e. hit the bottom of the screen, they will lose the ball. 
 After players lose the game they will have the option to restart the game.
 If there is time, options to customize the ball and hoop will be added as well.
 

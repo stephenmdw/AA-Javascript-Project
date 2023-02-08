@@ -11,16 +11,33 @@
   </head>
   
   <body>
-    <h1 class="header">Hoops</h1>
+    <div id="body-wrapper">
+    <div id="header-wrapper">
+      <h1 class="header">Hoops</h1>
+      <div id="image-wrapper">
+        <!-- <img id="git" src="assets/github-logo.png" alt="github" height="50px"> -->
+        <!-- <img id="link" src="assets/linkedin-circled.png" alt="linkedIn" height="50x"> -->
+        <div id="link"> </div>
+        <div id="git"> </div> 
+      </div>
+    </div>
     <div class="game-window">
-      <div id="start-screen" >
+      <div id="start-screen">
           <h1 class="title-card">Hoops</h1>
           <br>
           <button id="start-button">START</button>
           <br>
-          <button id="tut-button">TUTORIAL</button>
-          <div id="tut-screen"></div>
+          <div>
+          </div>
+          <div id="tut-screen">
+              <button id="tut-button">TUTORIAL</button>
+              <h1 id="howtoplay">How to play</h1>
+              <p id="tut-text">Click down and drag back from the hoop to shoot and aim, and let go to fire it towards the net. 
+                  You have three lives to make as many baskets as you can, good luck!
+              </p>
+            </div>
       </div>
+
       <div id="game-over">
           <h1 id="GO">GAME OVER</h1>
           <button id="restart-button">Restart</button>
@@ -28,6 +45,7 @@
 
       <canvas class="game-board" width="1000" height="680" id="canvas"></canvas>
     </div>
+  </div>
   </body>
 
 </html>

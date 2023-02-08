@@ -18,8 +18,9 @@ class Game {
         canvas.addEventListener("mousedown", this.startDrag.bind(this));
         canvas.addEventListener("mouseup", this.stopDrag.bind(this));
         const startButton = document.getElementById("start-button")
-        console.log(startButton)
+        const tutButton = document.getElementById("tut-button")
         startButton.addEventListener('click', this.start.bind(this))
+        tutButton.addEventListener('click', this.tutorial.bind(this))
         this.startScreen = startScreen
         this.over = gameOver
         this.play() 
@@ -40,13 +41,18 @@ class Game {
     }
 
     drawBackground(){
-        this.ctx.beginPath();
-        this.ctx.fillStyle = "white"
-        this.ctx.strokeStyle = "white"
-        this.ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height);
-        this.ctx.stroke();
-        // this.ctx.fillRect()
-        this.ctx.closePath();
+        // this.ctx.beginPath();
+        // this.ctx.fillStyle = "white"
+        // this.ctx.strokeStyle = "white"
+        // this.ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height);
+        // this.ctx.stroke();
+        // // this.ctx.fillRect()
+        // this.ctx.closePath();
+
+        var background = new Image();
+        background.src = "../assets/background.png";
+        this.ctx.drawImage(background,-150,-50)
+
     }
 
     play(){
@@ -91,6 +97,29 @@ class Game {
 
     start(){
         document.getElementById("start-screen").style.display = "none"
+    }
+
+    tutorial(){
+        if(document.getElementById("howtoplay").style.display === "none"){
+            document.getElementById("tut-screen").style.width = '400px';
+            document.getElementById("tut-screen").style.padding = '10px';
+            document.getElementById("tut-screen").style.height = '250px';
+            document.getElementById("howtoplay").style.display = "flex"
+            document.getElementById("tut-text").style.display = "flex"
+            document.getElementById("tut-button").textContent = "x"
+            document.getElementById("tut-button").style.width = "30px";
+            document.getElementById("tut-button").style.height = "30px"
+        } else {
+            document.getElementById("tut-screen").style.width = '200px';
+            document.getElementById("tut-screen").style.padding = '0px';
+            document.getElementById("tut-screen").style.height = '50px';
+            document.getElementById("howtoplay").style.display = "none"
+            document.getElementById("tut-text").style.display = "none"
+            document.getElementById("tut-button").textContent = "TUTORIAL"
+            document.getElementById("tut-button").style.width = "200px";
+            document.getElementById("tut-button").style.height = "50px"
+
+        }
     }
 
     gameOver(){

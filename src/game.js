@@ -50,7 +50,7 @@ class Game {
         // this.ctx.closePath();
 
         var background = new Image();
-        background.src = "../assets/background.png";
+        background.src = "./assets/background.png";
         this.ctx.drawImage(background,-150,-50)
 
     }

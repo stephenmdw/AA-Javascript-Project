@@ -83,7 +83,7 @@ class Game {
 
 
     reset(){
-        if (this.ball.pos[0] > 1000 || this.ball.pos[1] > 800){
+        if (this.ball.pos[0] > 1000 || this.ball.pos[1] > 800 || this.ball.pos[0] < 0){
             if(this.ball.made === true){
                 this.score.playerScore++
                 this.ball.made = false

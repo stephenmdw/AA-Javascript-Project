@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const startScreen = document.getElementById("start-screen")
     const gameOver = document.getElementById("game-over")
     // const ctx = canvas.getContext("2d");
+    // var music = document.getElementById("music");
+    // music.volume = 0.3; //Set the volume level (0-1)
     
     // let ball = new Ball(ctx);
     // ball.drawBall();

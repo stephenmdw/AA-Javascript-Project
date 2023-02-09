@@ -11,16 +11,37 @@
   </head>
   
   <body>
+    <audio id="audioContainer">
+      <source src="assets/basketballSong.mp3" type="audio/mpeg">
+    </audio>
     <div id="body-wrapper">
     <div id="header-wrapper">
       <h1 class="header">Hoops</h1>
+      
       <div id="image-wrapper">
+        <button id="mute" onclick="muteSong()"></button>
+        <script>
+          function muteSong(){
+            const audioContainer = document.getElementById("audioContainer");
+            if (audioContainer.volume > 0 ){
+              audioContainer.volume = 0
+              document.getElementById("mute").style.backgroundImage = "url('../assets/muted.png')";
+              document.getElementById("mute").style.backgroundSize = "100%";
+
+            } else {
+              audioContainer.volume = 0.3
+              document.getElementById("mute").style.backgroundImage = "url('../assets/unmuted.png')";
+              document.getElementById("mute").style.backgroundSize = "60%";
+            }
+          }
+        </script>
         <!-- <img id="git" src="assets/github-logo.png" alt="github" height="50px"> -->
         <!-- <img id="link" src="assets/linkedin-circled.png" alt="linkedIn" height="50x"> -->
         <a href="https://www.linkedin.com/in/stephen-wong-6655a716b/"><div id="link"></div></a>
         <a href="https://github.com/stephenmdw"><div id="git"></div> </a>
       </div>
     </div>
+
     <div class="game-window">
       <div id="start-screen">
           <h1 class="title-card">Hoops</h1>

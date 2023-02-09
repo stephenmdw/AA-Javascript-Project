@@ -104,6 +104,14 @@ class Game {
 
     start(){
         document.getElementById("start-screen").style.display = "none"
+        const audioContainer = document.getElementById("audioContainer"); 
+        if (audioContainer.volume === 0){
+            audioContainer.volume = 0
+            audioContainer.play()
+        } else {
+            audioContainer.volume = 0.3
+            audioContainer.play()
+        }
     }
 
     tutorial(){

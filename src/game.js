@@ -4,7 +4,7 @@ import Score from "./score.js"
 
 class Game {
     constructor(canvas, startScreen, gameOver){
-        this.ctx = canvas.getContext("2d"); //creates instance of drawing context
+        this.ctx = canvas.getContext("2d");
         this.dimensions = { width: canvas.width, height: canvas.height };
         this.hoop = new Hoop(this.ctx)
         this.score = new Score(this.ctx)
@@ -30,26 +30,16 @@ class Game {
     
     animate(){
         this.ctx.clearRect(0, 0, 1000, 680)
-        // console.log('clearing frame')
         this.drawBackground()
         this.ball.detectCollision(this.hoop)
         this.reset()
         this.score.animate()
         this.ball.animate(this.ctx)
         this.hoop.animate(this.ctx)
-        // this.increaseScore()
         window.requestAnimationFrame(this.animate.bind(this)) //why is this causing a orange line to connect
     }
 
     drawBackground(){
-        // this.ctx.beginPath();
-        // this.ctx.fillStyle = "white"
-        // this.ctx.strokeStyle = "white"
-        // this.ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height);
-        // this.ctx.stroke();
-        // // this.ctx.fillRect()
-        // this.ctx.closePath();
-
         var background = new Image();
         background.src = "./assets/background.png";
         this.ctx.drawImage(background,-150,-50)
@@ -66,7 +56,6 @@ class Game {
             this.startX = event.clientX;
             this.startY = event.clientY;
         }
-        // console.log("Mouse is at X: " + this.startX + ", Y: " + this.startY);
     }
             
     stopDrag(){
@@ -75,7 +64,6 @@ class Game {
             this.endY = event.clientY;
             this.ball.vel[0] = (this.startX - this.endX)/5 
             this.ball.vel[1] = (this.startY - this.endY)/5
-            // console.log(this.ball.vel)
             this.ball.dragging = false
             this.shot = true
         }
@@ -151,16 +139,6 @@ class Game {
         this.score.playerScore = 0
         this.score.playerLives = 3
     }
-
-    // increaseScore(){
-    //     if (this.ball.made === true){
-    //         // debugger
-    //         this.score.playerScore += 1
-    //         this.ball.made = false
-    //         console.log(this.score.playerScore)
-    //     } 
-    // }
-
 }
 
 export default Game

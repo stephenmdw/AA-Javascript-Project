@@ -4,7 +4,6 @@ class Score {
         this.playerScore = 0
         this.playerLives = 3
         var f = new FontFace('Dimis', 'url(./assets/DIMIS___.TTF)');
-        
         f.load().then(function(font) {
             // Ready to use the font in a canvas context
             // console.log('font ready');

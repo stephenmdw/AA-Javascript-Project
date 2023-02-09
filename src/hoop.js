@@ -1,4 +1,3 @@
-
 class Hoop {
     constructor(ctx){
         this.ctx = ctx
@@ -10,8 +9,6 @@ class Hoop {
     animate(ctx){
         this.drawHoop(ctx)
     }
-
-    //assign variables to the x and y position of the hoop and backboard to calculate collisions
 
     drawHoop(ctx){
         //backboard

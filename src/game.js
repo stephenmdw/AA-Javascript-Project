@@ -75,7 +75,7 @@ class Game {
             this.endY = event.clientY;
             this.ball.vel[0] = (this.startX - this.endX)/5 
             this.ball.vel[1] = (this.startY - this.endY)/5
-            console.log(this.ball.vel)
+            // console.log(this.ball.vel)
             this.ball.dragging = false
             this.shot = true
         }

@@ -7,7 +7,7 @@ class Score {
         
         f.load().then(function(font) {
             // Ready to use the font in a canvas context
-            console.log('font ready');
+            // console.log('font ready');
             // Add font on the html page
             document.fonts.add(font);
         });        
@@ -28,7 +28,6 @@ class Score {
     // }
 
     draw(){
-        
         
         this.ctx.font = "50px Dimis";
         this.ctx.fillStyle = 'black';

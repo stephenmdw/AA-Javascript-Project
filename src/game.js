@@ -19,6 +19,7 @@ class Game {
         canvas.addEventListener("mousedown", this.startDrag.bind(this));
         canvas.addEventListener("mouseup", this.stopDrag.bind(this));
         canvas.addEventListener("mousemove", this.drag.bind(this));
+        // canvas.addEventListener("mouseleave", () => { this.dragging = false })
         const startButton = document.getElementById("start-button")
         const tutButton = document.getElementById("tut-button")
         startButton.addEventListener('click', this.start.bind(this))
@@ -37,9 +38,9 @@ class Game {
             this.ctx.beginPath();
             this.ctx.setLineDash([5, 5]);
             this.ctx.moveTo(this.ball.pos[0], this.ball.pos[1]);
-            this.ctx.lineTo((this.startX - this.currentX) + this.ball.pos[0], this.ball.pos[1]  +     (this.startY - this.currentY));
+            this.ctx.lineTo((this.startX - this.currentX) + this.ball.pos[0], this.ball.pos[1] + (this.startY - this.currentY));
             this.ctx.stroke();
-            this.ctx.setLineDash([]); 
+            this.ctx.setLineDash([]);
         }
         this.reset()
         this.score.animate()
@@ -74,9 +75,11 @@ class Game {
             this.endY = event.clientY;
             this.ball.vel[0] = (this.startX - this.endX) / 5;
             this.ball.vel[1] = (this.startY - this.endY) / 5;
-            this.ball.dragging = false;
-            this.shot = true;
-            this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+            if (this.ball.vel[0] > 0 || this.ball.vel[1] > 0) {
+                this.ball.dragging = false;
+                this.shot = true;
+                this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+            }
         }
     }
     drag(event) {
@@ -92,6 +95,7 @@ class Game {
 
     reset() {
         if (this.ball.pos[0] > 1000 || this.ball.pos[1] > 800 || this.ball.pos[0] < 0) {
+            // if (this.shot === ?true) {
             if (this.ball.made === true) {
                 this.score.playerScore++
                 this.ball.made = false

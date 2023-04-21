@@ -15,7 +15,7 @@ This project used the following technologies:
 
 ## Gameplay
 
-http://www.giphy.com/gifs/cjlpji6OlOgHJjR7sY
+https://user-images.githubusercontent.com/117553743/217938450-68138e0f-2403-465d-968f-6fc82410b751.mov
 
 ## Features
 #### Functional start and game over screen

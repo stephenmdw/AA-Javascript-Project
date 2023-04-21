@@ -37,16 +37,19 @@ startDrag(){
     }
 }
             
-stopDrag(){
-    if ( this.shot === false ){
-        this.endX = event.clientX;
-        this.endY = event.clientY;
-        this.ball.vel[0] = (this.startX - this.endX)/5 
-        this.ball.vel[1] = (this.startY - this.endY)/5
-        this.ball.dragging = false;
-        this.shot = true;
+ stopDrag(event) {
+        if (this.shot === false) {
+            this.endX = event.clientX;
+            this.endY = event.clientY;
+            this.ball.vel[0] = (this.startX - this.endX) / 5;
+            this.ball.vel[1] = (this.startY - this.endY) / 5;
+            if (this.ball.vel[0] > 0 || this.ball.vel[1] > 0) {
+                this.ball.dragging = false;
+                this.shot = true;
+                this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+            }
+        }
     }
-}
 ```
 
 ## Bonus features

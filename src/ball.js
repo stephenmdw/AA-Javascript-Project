@@ -60,7 +60,7 @@ class Ball {
             this.vel[1] = this.vel[1] * -1
         }
 
-        if ((this.pos[0] + this.radius <= hoop.x && this.pos[0] + this.radius >= hoop.x - 85) && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 115) {
+        if ((this.pos[0] + this.radius <= hoop.x + 10 && this.pos[0] + this.radius >= hoop.x - 85) && this.pos[1] + this.radius >= hoop.y + 75 && this.pos[1] + this.radius <= hoop.y + 115) {
             this.makeshot.play()
             this.made = true;
             this.vel[0] = 0.1;

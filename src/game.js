@@ -99,6 +99,9 @@ class Game {
             if (this.ball.made === true) {
                 this.score.playerScore++
                 this.ball.made = false
+                if (this.score.playerScore >= 1) {
+                    this.hoop.y = Math.floor(Math.random() * (301 - 50)) + 50
+                }
             } else {
                 this.score.playerLives--
             }
@@ -110,6 +113,7 @@ class Game {
         }
 
         if (this.score.playerLives === 0) {
+            this.hoop.y = 250
             this.gameOver()
         }
     }

@@ -1,16 +1,16 @@
 class Hoop {
-    constructor(ctx){
+    constructor(ctx) {
         this.ctx = ctx
         this.x = 950
         this.y = 250
         this.animate = this.animate.bind(this)
     }
 
-    animate(ctx){
+    animate(ctx) {
         this.drawHoop(ctx)
     }
 
-    drawHoop(ctx){
+    drawHoop(ctx) {
         //backboard
         ctx.beginPath();
         ctx.rect(this.x, this.y, 10, 125);
@@ -21,7 +21,7 @@ class Hoop {
         ctx.closePath();
         //rim
         ctx.beginPath();
-        ctx.rect(this.x-85, this.y + 75, 85, 10);
+        ctx.rect(this.x - 95, this.y + 75, 95, 10);
         ctx.strokeStyle = "red"
         ctx.fillStyle = "red"
         ctx.fill()

@@ -85,6 +85,7 @@ Over Friday and the weekend, classes and images should be done for the ball, hoo
 Monday will be dedicated to ensuring the ball's trajectory and firing are working properly. I will also implement the movement of the hoop.
         
 Tuesday will involve the scoring and collisions with the hoop, as well as creating a game over/restart screen.
+![hoopsdemo](https://user-images.githubusercontent.com/117553743/233537027-4b2deada-1e73-4050-98cf-206d01b59528.gif)
 
 Wednesday will focus on styling the webpage and ironing out bugs within.
 
